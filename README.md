@@ -17,7 +17,7 @@
  -----------------------------------------------cd..
  -----------------------------------------------cd..
  
- after activating the virtual environment then download the requirements like django
+ after activating the virtual environment then download the requirements like django.
  pip install django
  
 next run the script file
