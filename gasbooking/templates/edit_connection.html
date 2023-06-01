@@ -1,0 +1,74 @@
+{% extends 'user_nav.html' %}
+{% block body %}
+{% load static %}
+<style>
+	body{
+	font-family: 'Open Sans', sans-serif;
+	background: url({% static 'images/banner5.jpg' %}) no-repeat 0px 0px;
+	background-size:cover;
+
+}
+</style>
+{% ifequal error "yes" %}
+    <script>alert(' Edit Connection Sucessfully');
+window.location='{% url 'view_connection' %}';
+</script>
+    {% endifequal %}
+<center>
+    <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center"> EDIT CONNECTION </h1>
+	    <div class="main-content" style="width:100%">
+				<div class="contact-w3" style="width:80%;margin-top:5px">
+
+					    <form action="" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						<label>Name</label>
+						<input type="text" name="uname" value="{{request.user.username}}" required>
+
+                        <label>Email</label>
+						<input type="email" name="email" value="{{request.user.email}}" required>
+                            <label>Mobile</label>
+						<input type="text" name="mobile" value="{{data.mobile}}" required>
+                        <label for="gender" style="margin-top:10px">Gender</label>
+                            <input type="radio" name="gender" value="male" style="color:white"><span style="color:yellow">male</span>
+                            <input type="radio"  name="gender" value="female" style="color:white"><span style="color:yellow">female [{{data1.gen}}]</span>
+                             <label>Nationality</label>
+						<input type="text" name="nationality" value="{{data1.nationality}}" required>
+  <label>Address</label>
+						<input type="text" name="add"  value="{{data1.address}}" required>
+
+                            <label>Married Status</label>
+                        <select name="married"  >
+                                <option value="" value="{{data1.merriedstatus}}">{{data1.merriedstatus}}</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Divorse">Divorse</option>
+                                <option value="Widow">Widow</option>
+                            </select>
+                            <h4 style="color:yellow ;MARGIN-TOP:5PX">SPOUSE OR FATHER INFORMATHION</h4>
+                            <label for="gender" style="margin-top:10px" >Select Related</label>
+                            <input type="radio" name="ralated" value="Father" style="color:white"><span style="color:yellow">Father</span>
+                            <input type="radio"  name="ralated" value="Spouse" style="color:white"><span style="color:yellow">Spouse [{{data1.related}}]</span>
+
+                            <label>First Name</label>
+						<input type="text" name="fname"  value="{{data1.fname}}" required>
+
+                        <label>Last Name</label>
+						<input type="text" name="lname" value="{{data1.lname}}" required>
+                             <label>City</label>
+						<input type="text" name="city" value="{{data1.city}}"required>
+
+                             <label>Zipcode</label>
+						<input type="text" name="zipcode"  value="{{data1.zipcode}}" required>
+						<label>Book Image (Upload Id proof)</label>
+						<input type="file" name="img" style="border:1px solid black;background-color:white" value="choose file" required>
+                                     <img src="{{data1.img.url}}" style="width:100px;height:100px;margin-left:30px;margin-bottom:10px">
+						<input type="submit" value="Submit">
+					</form>
+				</div>
+			</div>
+    </center>
+
+<div class="footer" align="center" style=" margin-top:15px; background-color:blue; height:40px;color:white; padding:8px;">
+    Online Gas Booking System!!!!
+</div>
+		{% endblock %}

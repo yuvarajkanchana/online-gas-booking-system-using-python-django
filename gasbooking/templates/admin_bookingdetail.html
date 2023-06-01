@@ -1,0 +1,125 @@
+{% extends 'admin_nav.html' %}
+{% block body %}
+<center>
+      <h1 style="font-size:25px; background-color:darkcyan;height:35px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center"> Booking History </h1>
+
+</center>
+ <div class="container" style="margin-top:40px;width:100%">
+
+<table  class="table table-bordered" id="myTable">
+<thead style="background-color:white">
+<tr>
+    <th style=" background-color:red">Booking Number</th>
+
+
+       <th style=" background-color:red;color:white">{{data.booknumber}}</th>
+
+
+  </tr>
+  <tr>
+    <th style=" background-color:red">Connection Number</th>
+
+       <td  style=" background-color:red;color:white">{{data.user.registration}}</td>
+
+
+  </tr>
+ <tr>
+    <th  style=" background-color:darkslategrey;color:white">Reffiling Size</th>
+
+
+       <th  style=" background-color:darkslategrey;color:white" >{{data.gassize}}</th>
+
+
+  </tr>
+  <tr>
+    <th  style=" background-color:darkslategrey;color:white">Cunsumer Name</th>
+
+
+       <th  style=" background-color:darkslategrey;color:white">{{data.user.user.user.username}}</th>
+
+
+  </tr>
+    <tr>
+    <th  style=" background-color:darkslategrey;color:white"> Cunsumer Mobile Number</th>
+
+
+    <th  style=" background-color:darkslategrey;color:white">{{data.user.user.mobile}}</th>
+
+
+
+    </tr>
+  <tr>
+    <th  style=" background-color:darkslategrey;color:white"> cunsumer Email Id</th>
+
+
+    <th  style=" background-color:darkslategrey;color:white">{{data.user.user.user.email}}</th>
+
+
+  </tr>
+<tr>
+    <th  style=" background-color:darkslategrey;color:white">Shipping Address</th>
+
+
+    <th  style=" background-color:darkslategrey;color:white">{{data.user.address}}</th>
+
+
+  </tr>
+ <tr>
+    <th  style=" background-color:darkslategrey;color:white">Order Final Status</th>
+
+
+       <th  style=" background-color:darkslategrey;color:white">{{data.bookstatus}}</th>
+
+
+  </tr>
+<tr>
+    <th  style=" background-color:darkslategrey;color:white">Booking Date</th>
+
+
+       <th  style=" background-color:darkslategrey;color:white" >{{data.bookdate}}</th>
+
+
+  </tr>
+
+  </thead>
+   <tbody>
+   </table><hr>
+     <div style="color:blue;font-weight:bold">
+         <h4>Response History</h4>
+     </div><hr>
+
+     <table class="table table-bordered" style="border:2px solid lightgrey">
+         <thead style="color:red">
+         <tr>
+             <th>#</th>
+             <th>Delivery Boy</th>
+             <th>Refilling Cost</th>
+             <th>Status</th>
+             <th>Response time</th>
+         </tr>
+         </thead>
+         <tbody>
+         {% for i in history %}
+         <tr>hii
+             <td>{{forloop.counter}}</td>
+             <td>{{i.d_boy}}</td>
+             <td>{{i.booking.user.cost}}</td>
+             <td>{{i.status}}</td>
+             <td>{{i.time1}}</td>
+         </tr>
+         {% endfor %}
+         </tbody>
+     </table>
+
+    {% if data.bookstatus != 'delivered' %}
+
+<center>
+      <a href="{% url 'edit_assign' data.id %}"><h1 style="font-size:20px; background-color:blue;height:35px;width:10%;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva;width:50px" align="center">Take Action </h1>
+</center>
+     {% endif %}
+
+
+<div class="footer" align="center" style=" margin-top:15px; background-color:blue; height:40px;color:white; padding:8px;">
+    Online Gas Booking System!!!!
+</div>
+   {% endblock %}

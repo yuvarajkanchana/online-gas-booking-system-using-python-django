@@ -1,0 +1,160 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block body %}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<style>
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+/* Rounded border */
+hr.rounded {
+  border-top: 8px solid lightblue;
+  border-radius: 5px;
+}
+
+.prjdiv:hover{
+transform:translateY(-10px)
+}
+div .container1{
+
+width:100%;
+background-color:lightgrey;
+border-radius:8px;
+}
+h2, h4{
+ padding:10Px;
+}
+
+
+</style>
+
+
+<div class="container" style="margin-top:10%;height:150px;width:100%">
+    <div class="row" style="height:90%">
+        <div style="height:100px;" class="col-md-3 prjdiv">
+            <div class="container1" style="background-color:green">
+            <h2 style="color:White">{{b}}</h2>
+            <a href="#"><h4 style="color:white">Total Connections</h4>
+        </a>
+            </div>
+        </div>
+        <div style="height:100px;" class="col-md-3 prjdiv">
+            <div class="container1" style="background-color:black">
+            <h2 style="color:White">{{b1}}</h2>
+            <a href="#"><h4 style="color:white">Total Booking</h4>
+
+            </a>
+       </div>
+        </div>
+        <div style="height:100px;" class="col-md-3 prjdiv">
+             <div class="container1"  style="background-color:darkgoldenrod">
+            <h2 style="color:white">{{b2}}</h2>
+            <a href="#"><h4 style="color:white">Total Staff</h4>
+        </a>
+             </div>
+        </div>
+        <div style="height:100px;" class="col-md-3 prjdiv">
+             <div class="container1"  style="background-color:Maroon">
+            <h2 style="color:white">{{b3}}</h2>
+            <a href="#"><h4 style="color:white">Total Registrations</h4>
+        </a>
+             </div>
+        </div>
+        </div>
+
+
+     <div class="row" style="height:90%">
+        <div style="height:100px;" class="col-md-3 prjdiv">
+            <div class="container1" style="background-color:Darkmagenta">
+            <h2 style="color:White">{{c1}}</h2>
+            <a href="#"><h4 style="color:white">Total Connections Approved</h4>
+        </a>
+            </div>
+        </div>
+        <div style="height:100px;" class="col-md-3 prjdiv">
+            <div class="container1" style="background-color:Darkseagreen">
+            <h2 style="color:White">{{c3}}</h2>
+            <a href="#"><h4 style="color:white">Total Connection OnHold</h4>
+
+            </a>
+       </div>
+        </div>
+        <div style="height:100px;" class="col-md-3 prjdiv">
+             <div class="container1"  style="background-color:deeppink">
+            <h2 style="color:white">{{c2}}</h2>
+            <a href="#"><h4 style="color:white">Total Connection Rejected</h4>
+        </a>
+             </div>
+        </div>
+        <div style="height:100px;" class="col-md-3 prjdiv">
+             <div class="container1"  style="background-color:forestgreen">
+            <h2 style="color:white">{{b}}</h2>
+            <a href="#"><h4 style="color:white">Total connections</h4>
+        </a>
+             </div>
+        </div>
+        </div>
+
+
+     <div class="row" style="height:90%">
+        <div style="height:100px;" class="col-md-3 prjdiv">
+            <div class="container1" style="background-color:seagreen">
+            <h2 style="color:White">{{bc1}}</h2>
+            <a href="#"><h4 style="color:white">Total Booking Confirmed</h4>
+        </a>
+            </div>
+        </div>
+        <div style="height:100px;" class="col-md-3 prjdiv">
+            <div class="container1" style="background-color:navy">
+            <h2 style="color:White">{{bc3}}</h2>
+            <a href="#"><h4 style="color:white">Total Booking OnTheWay</h4>
+
+            </a>
+       </div>
+        </div>
+        <div style="height:100px;" class="col-md-3 prjdiv">
+             <div class="container1"  style="background-color:olive">
+            <h2 style="color:white">{{bc2}}</h2>
+            <a href="#"><h4 style="color:white">Total Booking Canceled</h4>
+        </a>
+             </div>
+        </div>
+        <div style="height:100px;" class="col-md-3 prjdiv">
+             <div class="container1"  style="background-color:Lightcoral">
+            <h2 style="color:white">{{b1}}</h2>
+            <a href="#"><h4 style="color:white">Total Booking</h4>
+        </a>
+             </div>
+        </div>
+        </div>
+    </div>
+
+
+
+	
+<div class="footer" align="center" style=" margin-top:300px; background-color:blue; height:40px;color:white; padding:8px;">
+    Online Gas Booking System!!!!
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'admin_nav.html' %}
+{% block body %}
+<style>
+    button {
+  background-color: DarkSlateGrey;
+  color: white;
+  padding: 10px 15px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+input ,[type=text],[type=password],[type=date],select,textarea,[type=submit] {
+    border:2px solid blue;
+    width:60%;
+  }
+.button2 {
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+</style>
+<div class="container">
+       <h1 style="font-size:35px; background-color:darkcyan;height:45px;color:white;padding:5px;margin-top:5px;font-family : 'Monotype Corsiva" align="center">Search Booking </h1>
+
+        <form action="" method="post">
+        {% csrf_token %}
+    </center>
+
+                            <center style="font-size:20px;margin-top:30px">Search Booking By Booking Number<br>
+                            <input type="text"  name="booknumber" style="height:40px;width:50%;margin-left:20px;margin-top:30px">
+
+                            <button type="submit" style="width:50%;height:40px;margin-left:30px;margin-top:20px" class="btn btn-primary">Submit</button></center>
+
+    </form>
+</center>
+{% if error %}
+    <h1 style="color:orange;margin-top:20px;background-color:black;height:30px" align="center"> Result Against {{s}} Keyword</h1>
+<table class="table table-bordered" id="myTable" style="margin-top:20px">
+  <thead>
+  <tr>
+    <th>Sr. No</th>
+    <th>Booking Number</th>
+    <th>Full Name</th>
+    <th>Action</th>
+
+  </tr>
+  </thead>
+   <tbody>
+
+{% for i in data %}
+
+
+  <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.booknumber}}</td>
+        <td>{{i.user.user.user.username}}</td>
+        <td><a href="{% url 'admin_bookingdetail' i.id %}"><i class="glyphicon glyphicon-eye-open" style="color:yellow;margin-left:20px"></i></button></a>
+  </tr>
+
+   {% endfor %}
+
+    </tbody>
+</table>
+{% endif %}
+</div>
+
+<div class="footer" align="center" style=" margin-top:15px; background-color:blue; height:40px;color:white; padding:8px;">
+    Online Gas Booking System!!!!
+</div>
+{% endblock %}
